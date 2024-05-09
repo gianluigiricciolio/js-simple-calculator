@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <link rel="stylesheet" href="./css/style.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Michroma&display=swap" rel="stylesheet">
+        <link href="https://fonts.cdnfonts.com/css/seven-segment" rel="stylesheet">
+    </head>
+    <body>
+
+        <!--CONTENITORE PRINCIPALE FLEX PARENT CON BACKGROUND-->
+        <div class="container justify-center align-center">
+
+            <!--CALCOLATRICE FLEX ITEM-->
+            <div class="calculator">
+
+                <!--PRIMA SEZIONE LOGO-->
+                <div class="logo">
+                    <div class="logo-text">
+                        BOOSIO
+                    </div>
+
+                </div>
+
+                <!--SECONDA SEZIONE SCHERMO-->
+                <div class="display">
+                    <div id="elem">
+                        0
+                    </div>
+
+                </div>
+
+                <!--TERZA SEZIONE PULSANTI-->
+                <div class="buttons justify-around">
+
+                    <!--SEZIONE DEI NUMERI-->
+                    <div class="numbers justify-evenly">
+
+                        <!--NUMERI DA 7 A 9-->
+                        <div class="digits justify-evenly">
+                            <button class="number regular-button">7</button>
+                            <button class="number regular-button">8</button>
+                            <button class="number regular-button">9</button>
+                        </div>
+
+                        <!--NUMERI DA 4 A 6-->
+                        <div class="digits justify-evenly">
+                            <button class="number regular-button">4</button>
+                            <button class="number regular-button">5</button>
+                            <button class="number regular-button">6</button>
+                        </div>
+
+                        <!--NUMERI DA 1 A 3-->
+                        <div class="digits justify-evenly">
+                            <button class="number regular-button">1</button>
+                            <button class="number regular-button">2</button>
+                            <button class="number regular-button">3</button>
+                        </div>
+
+                        <!--ZERO E UGUALE-->
+                        <div class="digits justify-evenly">
+                            <button class="number double-button">0</button>
+                            <button class="regular-button orange">=</button>
+
+                        </div>
+                    </div>
+
+                    <!--SEZIONE DELLE FUNZIONI-->
+                    <div class="functions justify-evenly align-center">
+                        <button class="small-button orange">C</button>
+                        <button class="small-button">+</button>
+                        <button class="small-button">-</button>
+                        <button class="small-button">x</button>
+                        <button class="small-button">/</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script src="./js/main.js"></script>
+    </body>
+</html>
