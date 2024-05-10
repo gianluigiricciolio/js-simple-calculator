@@ -14,3 +14,10 @@ aggiungere event listener al pulsante "=": quando si clicca su =, salvare il sec
 MILESTONE 4
 pulsante canc: cliccando il pulsante si resetta il calcolo:stella2: BONUS
 verificare che non si stia cercando di dividere per 0
+
+
+Se ad un click si scatenano piu eventi, il parametro e a quale si riferisce?
+
+l'evento click button può scatenare cose diverse a seconda della classe specifica? esempio button attiva qualcosa e se number fa qualcosa se è operator fa altro?
+
+MODIFICARE GLI EVENT LISTENER PER APPLICARLI SU QUALUNQUE BOTTONE E ASECONDA DEL BOTTONE APPLICARE UNA FUNZIONE SPECIFICA con e.target (oggetto che ha scatenato l'evento)
