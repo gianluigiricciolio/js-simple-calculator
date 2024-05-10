@@ -1,7 +1,5 @@
 'use strict';
 
-console.log('main.js caricato');
-
 // NUMERO VISUALIZZATO SULLA CALCOLATRICE
 
 const operando = document.getElementById('elem');
@@ -9,16 +7,12 @@ let operando1;
 let operando2;
 let currentOperator="";
 
-// const numbers = document.querySelectorAll('.number');
-// const operators = document.querySelectorAll('.operator');
-// const equalOperator = document.querySelector('.equal');
-const buttons = document.querySelectorAll('.number,.operator,.equal');
+const buttons = document.querySelectorAll('.number,.operator,.equal,.cancel');
 
-
+// AGGIUNGO GLI EVENT LISTENER A TUTTI I PULSANTI E GESTISCO CON LO SWITCH LE VARIE CONDIZIONI
 for (let i=0; i < buttons.length; i++){
     buttons[i].addEventListener("click", function(e) {
         let classList = e.target.classList;
-        console.log(classList);
         switch(true){
             case classList.contains('number'):
                 selectNumber(e.target.innerText);
@@ -31,15 +25,53 @@ for (let i=0; i < buttons.length; i++){
                 break;
 
             case classList.contains('equal'):
-                console.log(operando);
-                console.log(operando2);
                 operando2=parseInt(operando.innerText);
                 operando.innerText = calculate();
+                break;
+
+            case classList.contains('cancel'):
+                resetValues();
                 break;
         }
     })
 }
 
+function selectNumber(selectedNumber){
+    // quando si clicca su un numero, concatenarlo al numero visualizzato in alto
+    if(operando.innerText=="0") operando.innerText = selectedNumber;
+    else operando.innerText += selectedNumber;
+}
+
+function selectOperator(selectedOperator){
+    // quando si clicca su un operatore, salvare l'operatore cliccato e il primo operando, quindi resettare il numero in alto
+    currentOperator=selectedOperator;
+
+}
+
+function calculate() {
+    // effetuare il calcolo corretto in base all'operatore
+    switch(currentOperator){
+        case "+":
+            return operando1+operando2;
+        case "-":
+            return operando1-operando2;
+        case "x":
+            return operando1*operando2;
+        case "/":
+        if(operando2===0) return "ERROREEEEEEE";
+        else return operando1/operando2;
+    }
+}
+
+function resetValues() {
+    operando.innerText="0";
+    operando1=operando2=currentOperator="";
+}
+
+
+// const numbers = document.querySelectorAll('.number');
+// const operators = document.querySelectorAll('.operator');
+// const equalOperator = document.querySelector('.equal');
 
 // // Aggiungere event listener a tutti i numeri (0-9):
 // for (let i = 0; i < numbers.length; i++){
@@ -68,30 +100,3 @@ for (let i=0; i < buttons.length; i++){
 //     // visualizzare il risultato in alto
 //     operando.innerText = calculate();
 // })
-
-function selectNumber(selectedNumber){
-    // quando si clicca su un numero, concatenarlo al numero visualizzato in alto
-    if(operando.innerText=="0") operando.innerText = selectedNumber;
-    else operando.innerText += selectedNumber;
-}
-
-function selectOperator(selectedOperator){
-    // quando si clicca su un operatore, salvare l'operatore cliccato e il primo operando, quindi resettare il numero in alto
-    currentOperator=selectedOperator;
-
-}
-
-function calculate() {
-    // effetuare il calcolo corretto in base all'operatore
-    switch(currentOperator){
-        case "+":
-            return operando1+operando2;
-        case "-":
-            return operando1-operando2;
-        case "x":
-            return operando1*operando2;
-        case "/":
-        if(operando2===0) return "ERROREEEEEEE";
-        else return operando1/operando2;
-    }
-}
