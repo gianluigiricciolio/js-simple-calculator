@@ -132,3 +132,7 @@
     height:40px;
     background-color: skyblue;
 }
+
+.functions *{
+    color:white;
+}

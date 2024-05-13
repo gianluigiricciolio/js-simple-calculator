@@ -6,6 +6,7 @@ const operando = document.getElementById('elem');
 let operando1;
 let operando2;
 let currentOperator="";
+let operationDone=false;
 
 const buttons = document.querySelectorAll('.number,.operator,.equal,.cancel');
 
@@ -15,7 +16,7 @@ for (let i=0; i < buttons.length; i++){
         let classList = e.target.classList;
         switch(true){
             case classList.contains('number'):
-                selectNumber(e.target.innerText);
+                if(!operationDone) selectNumber(e.target.innerText);
                 break;
 
             case classList.contains('operator'):
@@ -27,6 +28,7 @@ for (let i=0; i < buttons.length; i++){
             case classList.contains('equal'):
                 operando2=parseInt(operando.innerText);
                 operando.innerText = calculate();
+                operationDone=true;
                 break;
 
             case classList.contains('cancel'):
@@ -57,14 +59,16 @@ function calculate() {
             return operando1-operando2;
         case "x":
             return operando1*operando2;
-        case "/":
+        case currentOperator.data-operator=="/":
         if(operando2===0) return "ERROREEEEEEE";
         else return operando1/operando2;
     }
+    
 }
 
 function resetValues() {
     operando.innerText="0";
+    operationDone=false;
     operando1=operando2=currentOperator="";
 }
 
