@@ -22,7 +22,7 @@ for (let i=0; i < buttons.length; i++){
             case classList.contains('operator'):
                 operando1=parseInt(operando.innerText);
                 operando.innerText = "";
-                selectOperator(e.target.innerText);
+                selectOperator(e.target);
                 break;
 
             case classList.contains('equal'):
@@ -54,13 +54,13 @@ function selectOperator(selectedOperator){
 function calculate() {
     // effetuare il calcolo corretto in base all'operatore
     switch(true){
-        case currentOperator==='+':
+        case currentOperator.dataset.operator==='+':
             return operando1+operando2;
         case currentOperator.dataset.operator==='-':
             return operando1-operando2;
         case currentOperator.dataset.operator==='*':
             return operando1*operando2;
-        case currentOperator=='&#247':
+        case currentOperator.dataset.operator==='/':
         if(operando2===0) return "ERROREEEEEEE";
         else return operando1/operando2;
     }
