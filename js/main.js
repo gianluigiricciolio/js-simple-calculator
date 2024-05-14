@@ -27,8 +27,9 @@ for (let i=0; i < buttons.length; i++){
 
             case classList.contains('equal'):
                 operando2=parseInt(operando.innerText);
-                operando.innerText = calculate();
                 operationDone=true;
+                operando.innerText = calculate();
+                
                 break;
 
             case classList.contains('cancel'):
@@ -52,14 +53,14 @@ function selectOperator(selectedOperator){
 
 function calculate() {
     // effetuare il calcolo corretto in base all'operatore
-    switch(currentOperator){
-        case "+":
+    switch(true){
+        case currentOperator==='+':
             return operando1+operando2;
-        case "-":
+        case currentOperator.dataset.operator==='-':
             return operando1-operando2;
-        case "x":
+        case currentOperator.dataset.operator==='*':
             return operando1*operando2;
-        case currentOperator.data-operator=="/":
+        case currentOperator=='&#247':
         if(operando2===0) return "ERROREEEEEEE";
         else return operando1/operando2;
     }
